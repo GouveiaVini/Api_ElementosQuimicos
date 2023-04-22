@@ -6,6 +6,17 @@ const elementos = require('./src/data/elementos.json')
 //   console.log("Servidor ativo");
 // });
 
+var allowCrossDomain = function(req, res, next) {
+  res.header('Access-Control-Allow-Origin', "*");
+  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+  res.header('Access-Control-Allow-Headers', 'Content-Type');
+  next();
+}
+
+server.configure(function() {
+  server.use(allowCrossDomain);
+})
+
 server.listen(process.env.PORT || 3000);
 
 server.get('/', function(req, res){
@@ -15,3 +26,5 @@ server.get('/', function(req, res){
 server.get('/elementos', (req, res) => {
   return res.json(elementos);
 })
+
+
