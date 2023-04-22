@@ -6,12 +6,12 @@ const elementos = require('./src/data/elementos.json')
 //   console.log("Servidor ativo");
 // });
 
-// server.get('/elementos', (req, res) => {
-//   return res.json(elementos);
-// })
+server.listen(process.env.PORT || 3000);
 
 server.get('/', function(req, res){
   res.send("helloWord")
 })
 
-server.listen(process.env.PORT || 3000);
+server.get('/elementos', (req, res) => {
+  return res.json(elementos);
+})
