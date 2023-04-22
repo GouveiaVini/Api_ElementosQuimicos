@@ -6,6 +6,10 @@ server.listen(4000, () => {
   console.log("Servidor ativo");
 });
 
-server.get('/elementos', (req, res) => {
-  return res.json(elementos);
+// server.get('/elementos', (req, res) => {
+//   return res.json(elementos);
+// })
+
+server.get('/', function(req, res){
+  res.send("helloWord")
 })
