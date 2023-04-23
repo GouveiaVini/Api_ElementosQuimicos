@@ -1,16 +1,14 @@
 const express = require('express');
-const server = express();
-const elementos = require('./src/data/elementos.json')
+const app = express();
+const cors = require('cors');
+app.use(cors());
 
+const elements = require('./src/data/elementos.json')
 
-server.listen(process.env.PORT || 3000);
+app.get('/', (req, res) => res.status(200).send('Hello Word'));
 
-server.get('/', function(req, res){
-  res.send("helloWord")
-})
+app.get('/elements', (req, res) => res.status(200).send(elements));
 
-server.get('/elementos', (req, res) => {
-  return res.json(elementos);
-})
+app.listen(3333, () => console.log('server is running on port 3333'));
 
 
