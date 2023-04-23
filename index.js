@@ -9,6 +9,6 @@ app.get('/', (req, res) => res.status(200).send('Hello Word'));
 
 app.get('/elements', (req, res) => res.status(200).send(elements));
 
-app.listen(process.env.PORT || 3333, () => console.log('server is running on port 3333'));
+app.listen(3333, () => console.log('server is running on port 3333'));
 
 
